@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lato", sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+      color: black;
+      line-height: 1.8;
+      background-color: #ffffff;
+    }
+
+    /* Create a Parallax Effect */
+    .bgimg-1, 
+    .bgimg-2,
+    .bgimg-3 {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* First image (Logo. Full height) */
+    .bgimg-1 {
+      background-image: url('./img/bia.jpg');
+      min-height: 100%;
+    }
+
+    /* Second image (Portfolio) */
+    .bgimg-2 {
+      background-image: url('./img/sun.jpg');
+      min-height: 400px;
+    }
+
+    /* Third image (Contact) */
+    .bgimg-3 {
+      background-image: url("./img/5.jpg");
+      min-height: 400px;
+    }
+
+    .w3-wide {
+margin-top: 20px;
+      letter-spacing: 10px;
+      margin-bottom: 0;
+    }
+
+    .w3-hover-opacity {
+      cursor: pointer;
+      color: #000000
+    }
+
+    @media only screen and (max-device-width: 1600px) {
+
+      .bgimg-1
+      {
+        background-attachment: scroll;
+        min-height: 753px;
+      }
+    },
+      .bgimg-2,
+      .bgimg-3 {
+        background-attachment: scroll;
+        min-height: 400px;
+      }
+    }
+
+    /* Turn off parallax scrolling for tablets and phones ============ */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Center website */
+    .main {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 50px;
+      word-break: break-all;
+    }
+
+    .row {
+      margin: 10px -16px;
+    }
+
+    /* Add padding BETWEEN each column */
+    .row,
+    .row>.column {
+      padding: 8px;
+    }
+
+    /* Create three equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 33.33%;
+      display: none;
+      /* Hide all elements by default */
+    }
+
+    /* Clear floats after rows */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Content */
+    .content {
+      background-color: white;
+      padding: 10px;
+    }
+
+    /* The "show" class is added to the filtered elements */
+    .show {
+      display: block;
+    }
+
+    /* Style the buttons */
+    .btn {
+      border: none;
+      outline: none;
+      padding: 12px 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #ddd;
+    }
+
+    .btn.active {
+      background-color: #666;
+      color: white;
+    }
+
+    #more {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
+        onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="#home" class="w3-bar-item w3-button">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+      <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+        <i class="fa fa-search"></i>
+      </a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+      <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+      <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+    </div>
+  </div>
+
+  <!-- First Parallax Image with Logo Text -->
+  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+      <span class="w3-center w3-padding-large w3-yellow w3-xlarge w3-wide w3-animate-opacity">Hi! <span
+          class="w3-hide-small">I'm</span> Cao Van Nhat</span>
+    </div>
+  </div>
+
+  <!-- Container (About Section) -->
+  <section>
+    <div class="w3-content w3-container w3-padding-64" id="about">
+      <h3 class="w3-center">ABOUT ME</h3>
+      <hr class="w-100 pt-5">
+      <p class="w3-center"><em>Graphic Designer</em></p>
+      <p>Hello to my website. Here I will show you about the products I have created, through which you will see the
+        ability, skills, experience, what the overview clearly represents who I am and my personality. With my passion
+        for Graphic Design, I have chosen FPT University as a place to study and develop my capacity. Below are
+        information about myself and my skills with the software.</p>
+      <div class="w3-row">
+        <div class="w3-col m6 w3-center w3-padding-large">
+          <p><b><i class="fa fa-user w3-margin-right"></i>Cao Van Nhat</b></p><br>
+          <img src="./img/nsk.jpg" class=" w3-image w3-hover-opacity-off" alt="Photo of Me"
+            width="500" height="333">
+        </div>
+
+        <!-- Hide this text on small devices -->
+        <div class="w3-col m6 w3-hide-small w3-padding-large">
+          <p style="font-size: 20px; font-weight:700">2017-2018:</p>
+          <p>Completion of English program at FPT University</p>
+          <p style="font-size: 20px; font-weight:700">2018- May 2020:</p>
+          <p>Majoring in Graphic design at FPT University</p>
+          <p style="font-size: 20px; font-weight:700">May 2020 to September 2020:</p>
+          <p>Internship at Urah Network in 2D Animation and Modeling 3D</p>
+          <p style="font-size: 20px; font-weight:700">October 2020 to present:</p>
+          <p>Studying at FPT University majoring in Graphic design</p>
+          <p><span id="dots"></span><span id="more"> Myself a person who always tries my best at work, when making any
+              product, I always focus on completing it quickly and best before the deadline is given. I'm not afraid to
+              learn from people around, listen to everything, note good things affecting myself. Since then apply to
+              work, especially the useful things learned from everyone to help me develop into a professional Graphic
+              Designer. </span></p><br>
+          <button  class="w3-button w3-black w3-left w3-section" type="submit" onclick="myFunction()" id="myBtn" style="background-color: #f07f08" >Read more</button>
+        </div>
+      </div>
+
+      <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
+      <p class="w3-wide" style="margin-bottom: 0"><i class="fa fa-laptop"></i>Adobe Illustrator</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-laptop"></i>Autodesk Maya</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">80%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-photo"></i>Adobe Photoshop</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-laptop"></i>Adobe After Effects</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:70%">70%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:70%">70%</div>
+      </div>
+    </div>
+
+    <div class="w3-row w3-center w3-dark-grey w3-padding-16">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">6+</span><br>
+        Partners
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">10+</span><br>
+        Projects Done
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">20+</span><br>
+        Happy Clients
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">50+</span><br>
+        Meetings
+      </div>
+    </div>
+
+    <!-- Second Parallax Image with Portfolio Text -->
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+        <span class="w3-center w3-padding-large w3-yellow w3-xlarge w3-wide w3-animate-opacity">Portfolio</span>
+      </div>
+    </div>
+
+    <!-- Container (Portfolio Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="portfolio">
+      <h3 class="w3-center">MY WORK</h3>
+      <hr class="w-100 pt-5">
+      <p class="w3-center"><em>Here are some of my latest work .<br> Click on the images to observe in more detail</em>
+      </p><br>
+
+      <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+      <nav>
+        <div style="justify-content: center;" class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-work" role="tab"
+            aria-controls="nav-work" aria-selected="true">MOTTO</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-2d" role="tab"
+            aria-controls="nav-2d" aria-selected="false">2D</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-3d" role="tab"
+            aria-controls="nav-3d" aria-selected="false">3D</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-bg" role="tab"
+            aria-controls="nav-bg" aria-selected="false">BACKGROUND</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-ui" role="tab"
+            aria-controls="nav-ui" aria-selected="false">UI</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-web" role="tab"
+            aria-controls="nav-web" aria-selected="false">WEB</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-vid" role="tab"
+            aria-controls="nav-web" aria-selected="false">VIDEO</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-work" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="row">
+            <div class="col">
+              <img src="./img/1.jpg" alt="Tôi đã dạy những đứa trẻ mồ côi cách vẽ trong chuyến đi từ thiện vì tôi là một nhà Thiết kế đồ họa" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-2d" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="row">
+            <div class="col">
+              <img src="./img/2d/2.gif" alt="Đôi chim cu gáy thấy thức ăn sà xuống " style="width:100%" onclick="onClick(this)"
+                class="w3-hover-opacity" alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/2d/9.gif" alt="Phú Ông và A Sừ đi bẫy chim" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/2d/1.gif" alt="Đôi chim cu gáy sập bẫy" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <img src="./img/2d/10.png" alt="Hoạt hình giáo dục giới tính - VTV7" style="width:100%" onclick="onClick(this)"
+                class="w3-hover-opacity" alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/2d/12.png" alt="Hoạt hình giáo dục giới tính - VTV7" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/2d/11.png" alt="Hoạt hình giáo dục giới tính - VTV7" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-3d" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="row">
+            <div class="col">
+              <img src="./img/3d/1.jpg" alt="3D Modeling nhím Sonic" style="width:100%" onclick="onClick(this)"
+                class="w3-hover-opacity" alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/3d/2.png" alt="3D Modeling nhím Sonic (Lưới)" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/3d/3.png" alt="3D Modeling Larva" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <img src="./img/3d/4.png" alt="3D Modeling Tóc Tiên (Low Poly)" style="width:100%" onclick="onClick(this)"
+                class="w3-hover-opacity" alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/3d/5.png" alt="3D Rigging cá mập" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/3d/6.png" alt="3D Rigging người" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-bg" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <div class="row">
+            <div class="col">
+              <img src="./img/bg/1.jpg" alt="Khung cảnh trên núi" style="width:100%" onclick="onClick(this)"
+                class="w3-hover-opacity" alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/bg/2.jpg" alt="Đường đi bẫy chim" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/bg/3.jpg" alt="Nhà Phú Ông" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-ui" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <div class="row">
+            <div class="col">
+              <img src="./img/ui/4.jpg" alt="Welcome" style="width:100%" onclick="onClick(this)"
+                class="w3-hover-opacity" alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/ui/2.png" alt="Mock up" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/ui/7.jpg" alt="Sign in" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <img src="./img/ui/8.jpg" alt="Member information " style="width:100%" onclick="onClick(this)"
+                class="w3-hover-opacity" alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/ui/3.png" alt="Booking mookup" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/ui/6.jpg" alt="Booking successful" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-web" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <div class="row">
+            <div class="col">
+              <img src="./img/web/2.jpg" alt="Landing page of Bongdaplus" style="width:100%" onclick="onClick(this)"
+                class="w3-hover-opacity" alt="Background for Animation">
+            </div>
+            <div class="col">
+              <img src="./img/web/4.jpg" alt="Grid of Landing page" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+              <div class="col">
+              <img src="./img/web/5.jpg" alt="Mockup of Bongdaplus" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                alt="Background for Animation">
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </div>
+        </div>
+      </div>
+
+    </div>
+<br>
+    <!-- <div style="display: flex;
+    justify-content: center;
+    margin-bottom: 64px;">
+      <a href="https://www.behance.net/gallery/95926705/Na-Portfolio" target="_blank"><button
+          class="w3-button w3-padding-large w3-black" style="margin-top:-30px">SEE MORE</button></a>
+    </div> -->
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+      <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i
+          class="fa fa-remove"></i></span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image" style="max-height: 500px">
+        <p id="caption" class="w3-opacity w3-large"></p>
+      </div>
+    </div>
+
+    <!-- Third Parallax Image with Portfolio Text -->
+    <div class="bgimg-3 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+        <span class="w3-center w3-padding-large w3-yellow w3-xlarge w3-wide w3-animate-opacity">Contact me</span>
+      </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+      <h3 class="w3-center">LET'S TALK</h3>
+      <hr class="w-100 pt-5">
+      <p class="w3-center"><em>I'd love your feedback!</em></p>
+
+      <div class="w3-row w3-padding-32 w3-section">
+        <div class="w3-col m4 w3-container">
+          <img src="./img/n2.jpg" class="w3-image w3-round" style="width:100%">
+        </div>
+        <div class="w3-col m8 w3-panel">
+          <div class="w3-large w3-margin-bottom">
+            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Hanoi, Vietnam<br>
+            <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +84 962348838<br>
+            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
+            cvn24091999@mail.com<br>
+          </div>
+          <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+          <form action="/action_page.php" target="_blank">
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+              </div>
+              <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+              </div>
+            </div>
+            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+            <button class="w3-button w3-black w3-right w3-section" type="submit">
+              <i class="fa fa-paper-plane"></i> SEND MESSAGE
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+<br><br>
+    <!-- Footer -->
+    <footer class="w3-center w3-padding-64  w3-opacity w3-hover-opacity-off" style="background-color: #f07f08">
+
+      <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+      <div class="w3-xlarge w3-section">
+        <a href="https://www.facebook.com" class="fa fa-facebook-official w3-hover-opacity" ></a>
+        <a href="https://www.behance.net/gallery/95926705/Na-Portfolio" class="fa fa-behance w3-hover-opacity"></a>
+        <a href="https://www.youtube.com/watch?v=EaiQKhe_HEM" class="fa fa-youtube w3-hover-opacity"></a>
+      </div>
+      <p><a>Follow me</a></p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script>
+      function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+          dots.style.display = "inline";
+          btnText.innerHTML = "Read more";
+          moreText.style.display = "none";
+        } else {
+          dots.style.display = "none";
+          btnText.innerHTML = "Read less";
+          moreText.style.display = "inline";
+        }
+      }
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+
+      // Change style of navbar on scroll
+      window.onscroll = function () {
+        myFunction2()
+      };
+
+      function myFunction2() {
+        var navbar = document.getElementById("myNavbar");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        } else {
+          navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+        }
+      }
+
+      // Used to toggle the menu on small screens when clicking on the menu button
+      function toggleFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+
+      filterSelection("all")
+
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("column");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i],
+            "show");
+        }
+      }
+
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+          }
+        }
+      }
+
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+          }
+        }
+        element.className = arr1.join(" ");
+      }
+
+
+      // Add active class to the current button (highlight it)
+      var btnContainer = document.getElementById(" myBtnContainer");
+      var
+        btns = btnContainer.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+    </script>
+</body>
+
+</html>
